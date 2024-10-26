@@ -1,0 +1,52 @@
+SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ coords 1751.805 39 2864.34
+}
+SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+ coords 1723.81 39 2894.468
+}
+Turret {
+ coords 1713.678 39 2855.602
+}
+GenericEntity : "{14B5B4648300DD22}Prefabs/Items/Equipment/Backpacks/M2/Backpack_M2_Weapon.et" {
+ coords 1708.361 39.01 2850.662
+}
+GenericEntity : "{55A4FF54169F395A}Prefabs/Items/Equipment/Backpacks/NSV/Backpack_NSVSPP_Weapon.et" {
+ coords 1716.069 39.01 2852.7
+}
+SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 1710.472 39.01 2851.569
+}
+$grp GenericEntity : "{7611D0DAE5796941}Prefabs/Items/Equipment/Backpacks/Backpack_USSR_Bipod.et" {
+ {
+  coords 1712.784 39 2850.688
+ }
+ {
+  coords 1716.428 39 2851.684
+ }
+ {
+  coords 1723.73 39 2853.245
+ }
+}
+$grp GenericEntity : "{A207909C42E58944}Prefabs/Items/Equipment/Backpacks/Backpack_US_Tripod.et" {
+ {
+  coords 1708.792 39 2849.084
+ }
+ {
+  coords 1720.08 39 2852.441
+ }
+}
+GenericEntity : "{A89BC9D55FFB4CD8}Prefabs/Weapons/MachineGuns/PKM/MG_PKM.et" {
+ coords 1723.747 39 2854.876
+}
+GenericEntity : "{B4C47869B0B37699}Prefabs/Items/Equipment/Backpacks/NSV/Backpack_NSV_Weapon.et" {
+ coords 1712.379 39.01 2851.801
+}
+GenericEntity : "{BE99D77D1155B127}Prefabs/Props/Military/Arsenal/ArsenalBoxes/US/ArsenalBox_US.et" {
+ coords 1706.285 39 2846
+}
+GenericEntity : "{D182DCDD72BF7E34}Prefabs/Weapons/MachineGuns/M60/MG_M60.et" {
+ coords 1720.008 39.01 2854.039
+}
+GenericEntity : "{EDE6EC8B05227E3E}Prefabs/Props/Military/Arsenal/ArsenalBoxes/USSR/ArsenalBox_USSR.et" {
+ coords 1706.766 39 2849.009
+}

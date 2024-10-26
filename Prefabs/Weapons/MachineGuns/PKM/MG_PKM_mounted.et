@@ -1,0 +1,13 @@
+GenericEntity : "{A89BC9D55FFB4CD8}Prefabs/Weapons/MachineGuns/PKM/MG_PKM.et" {
+ ID "CFBAA4B725411E45"
+ components {
+  ActionsManagerComponent "{A29AE67FF4D82B0F}" {
+   additionalActions {
+    AssembleWeaponAction "{62B2ACD46226D4A7}" {
+     ParentContextList {
+     }
+    }
+   }
+  }
+ }
+}

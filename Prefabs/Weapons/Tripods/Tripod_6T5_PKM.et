@@ -1,0 +1,33 @@
+Turret : "{7C4D1A64D60F2C92}Prefabs/Weapons/Tripods/Tripod_6T5.et" {
+ ID "52D30EFBEBC74642"
+ components {
+  StaticWeaponComponent "{62B2ACD0CFFD1C21}" {
+   m_rWeaponBagPrefab "{A89BC9D55FFB4CD8}Prefabs/Weapons/MachineGuns/PKM/MG_PKM.et"
+   m_rBipodBagPrefab "{7611D0DAE5796941}Prefabs/Items/Equipment/Backpacks/Backpack_USSR_Bipod.et"
+  }
+  ActionsManagerComponent "{51ACD09C7181BA0B}" {
+   additionalActions {
+    MoveWeaponAction "{62B2ACD0BE4687F3}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{62B2ACD0BC768AFF}" {
+      Name "Move Weapon"
+     }
+     Duration 5
+     "Sort Priority" 3
+    }
+    DisassembleWeaponAction "{62B2ACD0AA509C83}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{62B2ACD0A61C8FE5}" {
+      Name "Disassemble Weapon"
+     }
+     Duration 5
+     "Sort Priority" 4
+    }
+   }
+  }
+ }
+}

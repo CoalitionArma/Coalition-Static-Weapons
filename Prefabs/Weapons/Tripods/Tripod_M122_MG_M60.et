@@ -1,0 +1,33 @@
+Turret : "{74202E9B1CDFCD13}Prefabs/Weapons/Tripods/Tripod_M122.et" {
+ ID "52D30EFBEBC74642"
+ components {
+  StaticWeaponComponent "{62B2ACD28784BBB9}" {
+   m_rWeaponBagPrefab "{D182DCDD72BF7E34}Prefabs/Weapons/MachineGuns/M60/MG_M60.et"
+   m_rBipodBagPrefab "{A207909C42E58944}Prefabs/Items/Equipment/Backpacks/Backpack_US_Tripod.et"
+  }
+  ActionsManagerComponent "{51ACD09C7181BA0B}" {
+   additionalActions {
+    MoveWeaponAction "{62B2ACD3BD9C9C53}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{62B2ACD3BB08EA53}" {
+      Name "Move Weapon"
+     }
+     Duration 5
+     "Sort Priority" 3
+    }
+    DisassembleWeaponAction "{62B2ACD3AAC45D3A}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{62B2ACD3A76ED045}" {
+      Name "Disassemble Weapon"
+     }
+     Duration 5
+     "Sort Priority" 4
+    }
+   }
+  }
+ }
+}

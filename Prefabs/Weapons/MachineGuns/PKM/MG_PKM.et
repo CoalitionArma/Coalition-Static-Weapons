@@ -1,0 +1,22 @@
+GenericEntity : "{76C400582D3C4AF9}Prefabs/Weapons/MachineGuns/PKM/MG_PKM_base.et" {
+ ID "CFBAA4B725411E45"
+ components {
+  StaticWeaponBagComponent "{62B2ACD46AC99A09}" {
+   m_rWeaponPrefab "{723870DBB19D30B0}Prefabs/Weapons/Tripods/Tripod_6T5_PKM.et"
+  }
+  ActionsManagerComponent "{A29AE67FF4D82B0F}" {
+   additionalActions {
+    AssembleWeaponAction "{62B2ACD46226D4A7}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{62B2ACD45E0B8145}" {
+      Name "Assemble Weapon"
+     }
+     Duration 5
+     "Sort Priority" 3
+    }
+   }
+  }
+ }
+}
