@@ -7,6 +7,8 @@ class ClientStaticWeaponComponent : ScriptComponent
 {
 	protected IEntity m_eBipodBag;
 	protected IEntity m_eWeaponBag;
+	protected IEntity m_eCurrentWeapon
+	protected ECharacterLifeState m_lCurrentLifeStatus = ECharacterLifeState.ALIVE;
 		
 	//I FUCKING LOVE GETINSTANCE
 	static ClientStaticWeaponComponent GetInstance()
@@ -15,6 +17,11 @@ class ClientStaticWeaponComponent : ScriptComponent
 			return ClientStaticWeaponComponent.Cast(GetGame().GetPlayerController().FindComponent(ClientStaticWeaponComponent));
 		else
 			return null;
+	}
+	
+	ECharacterLifeState GetLifeStatus()
+	{
+		return m_lCurrentLifeStatus;
 	}
 	
 	void SetIsMoving(bool input, RplId weaponID)

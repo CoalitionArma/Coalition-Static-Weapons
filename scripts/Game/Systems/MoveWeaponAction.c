@@ -15,8 +15,8 @@ class MoveWeaponAction: SCR_InventoryAction
 		m_eOriginalWeapon = pOwnerEntity;
 
 		GetGame().GetInputManager().ActivateContext("StaticWeaponContext", 99999);
-		GetGame().GetInputManager().AddActionListener("PlaceStaticWeapon", EActionTrigger.PRESSED, PlaceWeapon);
-		GetGame().GetInputManager().AddActionListener("CancelStaticWeapon", EActionTrigger.PRESSED, CancelWeapon);
+		GetGame().GetInputManager().AddActionListener("PlaceStaticWeapon", EActionTrigger.PRESSED, PlaceWeaponAction);
+		GetGame().GetInputManager().AddActionListener("CancelStaticWeapon", EActionTrigger.PRESSED, CancelWeaponAction);
 		
 		ClientStaticWeaponComponent.GetInstance().SetIsMoving(true, RplComponent.Cast(pOwnerEntity.FindComponent(RplComponent)).Id());
 
@@ -73,6 +73,18 @@ class MoveWeaponAction: SCR_InventoryAction
 		if (!m_ePreviewEntity)
 			return;
 		
+		if(SCR_CharacterControllerComponent.Cast(m_ePlayer.FindComponent(SCR_CharacterControllerComponent)).GetLifeState() == ECharacterLifeState.INCAPACITATED ||SCR_CharacterControllerComponent.Cast(m_ePlayer.FindComponent(SCR_CharacterControllerComponent)).GetLifeState() == ECharacterLifeState.DEAD)
+		{
+			CancelWeapon();
+			return;
+		}
+		
+		if(vector.Distance(m_eOriginalWeapon.GetOrigin(), m_ePlayer.GetOrigin()) > 10)
+		{
+			CancelWeapon();
+			return;
+		}
+		
 		vector transform[4];
 		UpdateWeaponPosition(transform);
 		m_ePreviewEntity.SetWorldTransform(transform);
@@ -81,7 +93,12 @@ class MoveWeaponAction: SCR_InventoryAction
 	}
 	
 	//Calls PlaceWeapon to the Clients Player Controller Component
-	protected void PlaceWeapon(float value, EActionTrigger reason)
+	protected void PlaceWeaponAction(float value, EActionTrigger reason)
+	{
+		PlaceWeapon();
+	}
+	
+	protected void PlaceWeapon()
 	{
 		GetGame().GetCallqueue().Remove(Update);
 		vector transform[4];
@@ -89,12 +106,18 @@ class MoveWeaponAction: SCR_InventoryAction
 		
 		ClientStaticWeaponComponent.GetInstance().PlaceWeapon(RplComponent.Cast(m_eOriginalWeapon.FindComponent(RplComponent)).Id(), transform);
 		GetGame().GetCallqueue().CallLater(DeleteWeapon, 250, false, m_ePreviewEntity);
+		GetGame().GetInputManager().RemoveActionListener("CancelStaticWeapon", EActionTrigger.PRESSED, PlaceWeapon);
 		GetGame().GetInputManager().RemoveActionListener("PlaceStaticWeapon", EActionTrigger.PRESSED, PlaceWeapon);
 		GetGame().GetInputManager().ActivateContext("StaticWeaponContext");
 		ClientStaticWeaponComponent.GetInstance().SetIsMoving(false, RplComponent.Cast(m_eOriginalWeapon.FindComponent(RplComponent)).Id());
 	}
 	
-	protected void CancelWeapon(float value, EActionTrigger reason)
+	protected void CancelWeaponAction(float value, EActionTrigger reason)
+	{
+		CancelWeapon();
+	}
+	
+	protected void CancelWeapon()
 	{
 		GetGame().GetCallqueue().Remove(Update);
 		GetGame().GetInputManager().RemoveActionListener("CancelStaticWeapon", EActionTrigger.PRESSED, PlaceWeapon);
@@ -102,7 +125,7 @@ class MoveWeaponAction: SCR_InventoryAction
 		GetGame().GetInputManager().ActivateContext("StaticWeaponContext");
 		ClientStaticWeaponComponent.GetInstance().SetIsMoving(false, RplComponent.Cast(m_eOriginalWeapon.FindComponent(RplComponent)).Id());
 		delete m_ePreviewEntity;
-	}
+	}	
 	
 	//Used to delay preview entities deletion
 	protected void DeleteWeapon(IEntity entity)

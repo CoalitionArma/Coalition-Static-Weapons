@@ -27,6 +27,9 @@ $grp GenericEntity : "{7611D0DAE5796941}Prefabs/Items/Equipment/Backpacks/Backpa
   coords 1723.73 39 2853.245
  }
 }
+Turret : "{887DB60486A18575}Prefabs/Weapons/Tripods/Tripod_M122_MG_M60.et" {
+ coords 1723.343 39 2862.061
+}
 $grp GenericEntity : "{A207909C42E58944}Prefabs/Items/Equipment/Backpacks/Backpack_US_Tripod.et" {
  {
   coords 1708.792 39 2849.084
